@@ -16,14 +16,10 @@ class NoteDataManager {
     
     // save thes notes
     func saveNotes(_ notes: [Note]) {
-        // Load the existing notes
-        var existingNotes = loadNotes()
-        
-        existingNotes.append(contentsOf: notes)
-        let encodedData = try? JSONEncoder().encode(existingNotes)
-        
+        let encodedData = try? JSONEncoder().encode(notes)
         userDefaults.set(encodedData, forKey: notesKey)
     }
+
 
     
     //lodaing the notes

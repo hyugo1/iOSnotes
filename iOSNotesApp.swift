@@ -11,9 +11,12 @@ import SwiftUI
 // main notes app
 @main
 struct iOSNotesApp: App {
+    @StateObject private var notesObserve = NotesObserve()
+
     var body: some Scene {
         WindowGroup {
             MainNotePageView()
+                .environmentObject(notesObserve)
         }
     }
 }

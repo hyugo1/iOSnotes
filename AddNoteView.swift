@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-// adding new note view
 struct AddNoteView: View {
     @State private var title = ""
     @State private var content = ""
-
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var NotesObserve: NotesObserve
+    
     var body: some View {
         NavigationView {
             Form {
@@ -19,15 +20,21 @@ struct AddNoteView: View {
                     TextField("Title", text: $title)
                     TextField("Content", text: $content)
                 }
-
                 Section {
+                    
                     Button("Save") {
                         let newNote = Note(title: title, content: content)
-                        NoteDataManager.shared.saveNotes([newNote])
+                        NotesObserve.notes.append(newNote)
+                        
+                        NoteDataManager.shared.saveNotes(NotesObserve.notes)
+                        
+                        title = ""
+                        content = ""
+                        
+                        presentationMode.wrappedValue.dismiss()
                     }
                 }
             }
-            .navigationBarTitle("Add Note")
         }
     }
 }
