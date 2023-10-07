@@ -2,7 +2,7 @@
 //  NoteDataManager.swift
 //  iOSNotes
 //
-//  Created by Hugo Senzai on 05/10/2023.
+//  Created by hyugo1 on 05/10/2023.
 //
 
 import Foundation

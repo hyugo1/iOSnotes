@@ -2,7 +2,7 @@
 //  NotesObserve.swift
 //  iOSNotes
 //
-//  Created by Hugo Senzai on 07/10/2023.
+//  Created by hyugo1 on 07/10/2023.
 //
 
 import SwiftUI
